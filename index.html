@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecte | Minimalisme & Modernité</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --noir: #000000;
+            --noir-fonce: #111111;
+            --noir-clair: #1a1a1a;
+            --blanc: #ffffff;
+            --gris-clair: #f0f0f0;
+            --gris-moyen: #cccccc;
+            --gris-texte: #999999;
+            --gris-fonce: #333333;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--gris-clair);
+            background-color: var(--noir);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* En-tête et navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(255, 255, 255, 0.05);
+            padding: 18px 0;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            border-bottom: 1px solid var(--gris-fonce);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--blanc);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            font-weight: 300;
+            margin-left: 4px;
+            color: var(--gris-moyen);
+        }
+        
+        .logo::before {
+            content: "◼";
+            margin-right: 8px;
+            font-size: 18px;
+            color: var(--blanc);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 35px;
+            position: relative;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--gris-clair);
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 0.2px;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+        
+        nav a:hover {
+            color: var(--blanc);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--blanc);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--blanc);
+            z-index: 1001;
+        }
+        
+        /* Section héros */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            filter: contrast(1.1) brightness(0.7);
+        }
+        
+        .hero-content {
+            max-width: 750px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 58px;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: var(--blanc);
+            letter-spacing: -1px;
+        }
+        
+        .hero h1 strong {
+            font-weight: 600;
+            display: block;
+            margin-top: 5px;
+            color: var(--gris-clair);
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: var(--gris-moyen);
+            margin-bottom: 35px;
+            max-width: 600px;
+            font-weight: 400;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 35px;
+            background-color: var(--blanc);
+            color: var(--noir);
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            border: 1px solid var(--blanc);
+            font-size: 15px;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--blanc);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn i {
+            margin-left: 10px;
+            transition: var(--transition);
+        }
+        
+        .btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Sections générales */
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 60px;
+            text-align: center;
+            color: var(--blanc);
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title span {
+            font-weight: 600;
+            color: var(--gris-clair);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--gris-fonce);
+        }
+        
+        /* Section projets */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            background-color: var(--noir-clair);
+            height: 450px;
+            border-radius: 2px;
+            transition: var(--transition);
+            border: 1px solid var(--gris-fonce);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
+            border-color: var(--gris-moyen);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: grayscale(20%) contrast(1.1);
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+            filter: grayscale(0%) contrast(1.1);
+        }
+        
+        .project-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            color: var(--blanc);
+        }
+        
+        .project-info h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--blanc);
+        }
+        
+        .project-info p {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 400;
+            color: var(--gris-moyen);
+        }
+        
+        /* Section galerie */
+        .gallery {
+            background-color: var(--noir-fonce);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .gallery-item {
+            height: 320px;
+            overflow: hidden;
+            background-color: var(--noir-clair);
+            border-radius: 2px;
+            position: relative;
+            transition: var(--transition);
+            border: 1px solid var(--gris-fonce);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.05);
+            border-color: var(--gris-moyen);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: grayscale(30%) contrast(1.1);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+            filter: grayscale(10%) contrast(1.1);
+        }
+        
+        /* Section à propos */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: var(--blanc);
+            line-height: 1.3;
+        }
+        
+        .about-text p {
+            margin-bottom: 25px;
+            color: var(--gris-moyen);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        .about-stats {
+            display: flex;
+            margin-top: 40px;
+        }
+        
+        .stat {
+            margin-right: 40px;
+        }
+        
+        .stat-number {
+            font-size: 40px;
+            font-weight: 300;
+            color: var(--blanc);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--gris-texte);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+        
+        .about-img {
+            height: 550px;
+            background-color: var(--noir-clair);
+            overflow: hidden;
+            border-radius: 2px;
+            position: relative;
+            border: 1px solid var(--gris-fonce);
+        }
+        
+        .about-img::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--gris-moyen);
+            z-index: -1;
+            border-radius: 2px;
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+            filter: grayscale(20%) contrast(1.1);
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.03);
+            filter: grayscale(0%) contrast(1.1);
+        }
+        
+        /* Section services */
+        .services {
+            background-color: var(--noir-fonce);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            text-align: left;
+            padding: 40px;
+            background-color: var(--noir-clair);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.02);
+            transition: var(--transition);
+            border-radius: 2px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--gris-fonce);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
+            border-color: var(--gris-moyen);
+        }
+        
+        .service-icon {
+            font-size: 42px;
+            margin-bottom: 25px;
+            color: var(--blanc);
+        }
+        
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--blanc);
+            font-weight: 500;
+        }
+        
+        .service-card p {
+            color: var(--gris-moyen);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+        
+        .service-link {
+            color: var(--blanc);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .service-link i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+        
+        .service-link:hover {
+            color: var(--gris-moyen);
+        }
+        
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Section contact */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-info h3 {
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: var(--blanc);
+            line-height: 1.3;
+        }
+        
+        .contact-info p {
+            margin-bottom: 25px;
+            color: var(--gris-moyen);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        .contact-details {
+            margin-top: 40px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            color: var(--gris-clair);
+        }
+        
+        .contact-details i {
+            margin-right: 15px;
+            width: 20px;
+            color: var(--blanc);
+            font-size: 18px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 16px 20px;
+            margin-bottom: 25px;
+            border: 1px solid var(--gris-fonce);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            transition: var(--transition);
+            background-color: var(--noir-clair);
+            border-radius: 2px;
+            color: var(--gris-clair);
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--gris-moyen);
+            background-color: var(--noir-fonce);
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: var(--gris-texte);
+        }
+        
+        /* Pied de page */
+        footer {
+            background-color: var(--noir-fonce);
+            color: var(--blanc);
+            padding: 70px 0 30px;
+            border-top: 1px solid var(--gris-fonce);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--blanc);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-logo span {
+            font-weight: 300;
+            margin-left: 4px;
+            color: var(--gris-moyen);
+        }
+        
+        .footer-logo::before {
+            content: "◼";
+            margin-right: 8px;
+            font-size: 18px;
+            color: var(--blanc);
+        }
+        
+        .footer-description {
+            color: var(--gris-texte);
+            margin-top: 20px;
+            font-size: 15px;
+            line-height: 1.7;
+            max-width: 300px;
+        }
+        
+        .footer-links-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-links h4 {
+            font-size: 16px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            color: var(--blanc);
+            letter-spacing: 0.5px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--gris-texte);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--blanc);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--gris-fonce);
+            color: var(--gris-texte);
+            font-size: 14px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--blanc);
+            border-radius: 50%;
+            margin-right: 15px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .hero h1 {
+                font-size: 50px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero h1 {
+                font-size: 44px;
+            }
+            
+            .about-img {
+                height: 400px;
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 100px 0;
+                box-shadow: none;
+                z-index: 999;
+                border-right: 1px solid var(--gris-fonce);
+            }
+            
+            nav.active ul {
+                display: flex;
+            }
+            
+            nav li {
+                margin: 0;
+                text-align: center;
+                padding: 20px 0;
+                width: 100%;
+            }
+            
+            nav a {
+                font-size: 18px;
+                padding: 10px 0;
+                display: block;
+                width: 100%;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 38px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 50px;
+            }
+            
+            .projects-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-stats {
+                justify-content: space-between;
+            }
+            
+            .footer-links-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-stats {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .stat {
+                margin-right: 0;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+        }
+        
+        /* Animation d'apparition */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête avec navigation -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#accueil" class="logo">ARCHI<span>TECTE</span></a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
+                    <li><a href="#apropos">À Propos</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Accueil/Héros -->
+    <section class="hero" id="accueil">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Architecture <strong>minimaliste</strong> <strong>& moderne</strong></h1>
+                <p>Je conçois des espaces qui allient esthétique, fonctionnalité et harmonie. Mon approche combine la pureté des lignes avec une attention minutieuse aux détails pour créer des environnements uniques et intemporels.</p>
+                <a href="#projets" class="btn">Découvrir mes projets <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projets">
+        <div class="container">
+            <h2 class="section-title">Mes <span>Projets</span></h2>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Villa Minimaliste" class="project-img">
+                    <div class="project-info">
+                        <h3>Villa Minimaliste</h3>
+                        <p>Maison unifamiliale, 2023</p>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Appartement Urbain" class="project-img">
+                    <div class="project-info">
+                        <h3>Appartement Urbain</h3>
+                        <p>Rénovation complète, 2022</p>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Bureau Corporatif" class="project-img">
+                    <div class="project-info">
+                        <h3>Bureau Corporatif</h3>
+                        <p>Design d'intérieur, 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Galerie -->
+    <section class="gallery" id="galerie">
+        <div class="container">
+            <h2 class="section-title">Galerie <span>Visuelle</span></h2>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80" alt="Architecture minimaliste intérieure">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1487956382158-bb926046304a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Design d'espace épuré">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80" alt="Intérieur lumineux">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Structure architecturale">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À Propos -->
+    <section id="apropos">
+        <div class="container">
+            <h2 class="section-title">À <span>Propos</span></h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h3>Mon parcours en architecture minimaliste</h3>
+                    <p>Diplômée de l'École Nationale Supérieure d'Architecture, je me spécialise dans l'architecture minimaliste depuis plus de 10 ans. Mon travail est guidé par la conviction que moins est plus, et que chaque élément architectural doit avoir une raison d'être.</p>
+                    <p>Mon approche combine l'esthétique épurée avec une fonctionnalité optimale, créant ainsi des espaces qui répondent aux besoins contemporains tout en conservant une élégance intemporelle.</p>
+                    <p>Je collabore étroitement avec mes clients pour transformer leur vision en espaces de vie uniques qui reflètent leur personnalité et leur style de vie.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Projets réalisés</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Années d'expérience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">Prix internationaux</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-img fade-in">
+                    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Architecte travaillant sur un projet">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Mes <span>Services</span></h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Conception Résidentielle</h3>
+                    <p>Création de maisons et appartements sur mesure, alliant esthétique minimaliste et fonctionnalité optimale pour un cadre de vie harmonieux et intemporel.</p>
+                    <a href="#contact" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Architecture Commerciale</h3>
+                    <p>Design d'espaces commerciaux et bureaux qui reflètent l'identité de votre entreprise tout en optimisant l'expérience utilisateur et la productivité.</p>
+                    <a href="#contact" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3>Design d'Intérieur</h3>
+                    <p>Aménagement d'intérieurs épurés et fonctionnels, avec une sélection minutieuse de matériaux et de finitions pour créer des ambiances uniques et apaisantes.</p>
+                    <a href="#contact" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Me <span>Contacter</span></h2>
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3>Travaillons ensemble</h3>
+                    <p>Vous avez un projet en tête ? Discutons de la façon dont nous pouvons collaborer pour créer un espace qui correspond à vos attentes et reflète votre personnalité.</p>
+                    <p>Je réponds à toutes les demandes sous 48 heures.</p>
+                    
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Avenue de l'Architecture, 75000 Paris</p>
+                        <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+                        <p><i class="fas fa-envelope"></i> contact@architecte-minimaliste.com</p>
+                        <p><i class="fas fa-clock"></i> Lundi - Vendredi : 9h - 18h</p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Votre nom" required>
+                        <input type="email" placeholder="Votre email" required>
+                        <input type="text" placeholder="Sujet" required>
+                        <textarea placeholder="Votre message" required></textarea>
+                        <button type="submit" class="btn">Envoyer le message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">ARCHI<span>TECTE</span></div>
+                    <p class="footer-description">Architecture minimaliste et moderne. Création d'espaces épurés, fonctionnels et intemporels.</p>
+                </div>
+                
+                <div class="footer-links-container">
+                    <div class="footer-links">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#accueil">Accueil</a></li>
+                            <li><a href="#projets">Projets</a></li>
+                            <li><a href="#galerie">Galerie</a></li>
+                            <li><a href="#apropos">À Propos</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#services">Conception Résidentielle</a></li>
+                            <li><a href="#services">Architecture Commerciale</a></li>
+                            <li><a href="#services">Design d'Intérieur</a></li>
+                            <li><a href="#services">Consultation</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Légal</h4>
+                        <ul>
+                            <li><a href="#">Mentions légales</a></li>
+                            <li><a href="#">Politique de confidentialité</a></li>
+                            <li><a href="#">Conditions d'utilisation</a></li>
+                            <li><a href="#">Plan du site</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Architecte Minimaliste. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Fermer le menu mobile en cliquant sur un lien
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+        
+        // Gestion de l'envoi du formulaire
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.');
+            contactForm.reset();
+        });
+        
+        // Animation de défilement fluide
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation d'apparition au défilement
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const appearOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        fadeElements.forEach(element => {
+            appearOnScroll.observe(element);
+        });
+        
+        // Effet de transparence de l'en-tête au défilement
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(0, 0, 0, 0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(255, 255, 255, 0.05)';
+            } else {
+                header.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(255, 255, 255, 0.02)';
+            }
+        });
+        
+        // Préchargement d'images pour éviter les flashs blancs
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
